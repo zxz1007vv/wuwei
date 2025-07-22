@@ -1,0 +1,19 @@
+These files were derived from files collected by Marcel Grünauer.
+They show an experimental version of alphago beating its opponents 60-0.
+
+30 games (named T**.sgf) were played on the Tygem server.
+30 games (named F**.sgf) were played on the Fox server.
+
+Time settings were TM[0]: no main period, and Japanese byo-yomi
+with TC[3]: three periods of TT[20] or TT[30] or TT[60]:
+20 or 30 or 60 seconds.
+
+The opponent names here are conjectured. We follow
+https://www.reddit.com/r/baduk/comments/5ozzp7/complete_list_of_masters_opponents/
+Other lists have Kim Jiseok instead of Kim Junghyun for game T23.sgf
+and Lee Donghun instead of Yun Chanhee for game T26.sgf.
+
+Note that the numbering here is the chronological one.
+Elsewhere games #12 and #13 are often interchanged.
+
+See also https://deepmind.com/research/alphago/match-archive/master/

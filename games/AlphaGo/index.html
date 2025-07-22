@@ -1,0 +1,413 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd"><html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>AlphaGo</title>
+<style type="text/css">
+ td {padding: 1px 10px;}
+</style>
+</head>
+<body>
+<a href="../index.html">Up</a>
+<a href="../../alphago.tgz">Download</a>
+<p>
+<ul>
+<li><a href="#FanHui">FanHui</a></li>
+<li><a href="#Master">Master</a></li>
+<li><a href="#LeeSedol">LeeSedol</a></li>
+<li><a href="#Wuzhen">Wuzhen</a> (<a href="#KeJie">KeJie</a>,
+<a href="#pairgo">pairgo</a>, <a href="#teamgo">teamgo</a>)</li>
+<li>Selfplay (<a href="#selfplay1">3 Commented Selfplay Games</a>,
+<a href="#selfplay2">50 Selfplay Games</a>,
+<a href="#selfplay3">5 Selfplay Videos</a>)</li>
+<li><a href="#Zero">AlphaGo Zero</a></li>
+</ul>
+
+<p>
+<h1>AlphaGo</h1>
+AlphaGo is a computer go program developed by the Google company DeepMind.
+It was the first program to reach pro level.
+In Jan 2016 it was reported that AlphaGo had played a match against the
+European champion Fan Hui (in Oct 2015) and won 5-0. Simultaneously,
+a description of the used algorithms was published in the journal Nature.
+<blockquote><font size="-2">
+David Silver, Aja Huang, Chris J. Maddison, Arthur Guez, Laurent Sifre,
+George van den Driessche, Julian Schrittwieser, Ioannis Antonoglou,
+Veda Panneershelvam, Marc Lantot, Sander Dieleman, Dominik Grewe,
+John Nham, Nal Kalchbrenner, Ilya Sutskever, Timothy Lillicrap,
+Madeleine Leach, Koray Kavukcuoglu, Thore Graepel, Demis Hassabis,
+<i>Mastering the game of Go with deep neural networks and tree search</i>,
+Nature <b>529</b> (28 Jan 2016) 484–489.
+</font></blockquote>
+In Mar 2016 it played a match against Lee Sedol and won 4-1.
+<p>
+Around New Year 2017 an improved version played 60 fast games on the Tygem
+and Foxwq servers against various opponents and won 60-0.
+<p>
+In May 2017 it played a match against Ke Jie and won 3-0.
+<p>
+<h2><a name="FanHui">Match against Fan Hui</a></h2>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>2015-10-05</td> <td>Fan Hui</td> <td>AlphaGo</td> <td>W+2.5</td> <td>272</td> <td><a href="FanHui/1.sgf">sgf</a></td></tr>
+<tr><td>2015-10-06</td> <td>AlphaGo</td> <td>Fan Hui</td> <td>B+R</td> <td>183</td> <td><a href="FanHui/2.sgf">sgf</a></td></tr>
+<tr><td>2015-10-07</td> <td>Fan Hui</td> <td>AlphaGo</td> <td>W+R</td> <td>166</td> <td><a href="FanHui/3.sgf">sgf</a></td></tr>
+<tr><td>2015-10-08</td> <td>AlphaGo</td> <td>Fan Hui</td> <td>B+R</td> <td>165</td> <td><a href="FanHui/4.sgf">sgf</a></td></tr>
+<tr><td>2015-10-09</td> <td>Fan Hui</td> <td>AlphaGo</td> <td>W+R</td> <td>214</td> <td><a href="FanHui/5.sgf">sgf</a></td></tr>
+</table>
+<p>
+<h2><a name="LeeSedol">Match against Lee Sedol</a></h2>
+The game records under sgfc are commented by Fan Hui.
+<p>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th> <th>sgfc</th></tr>
+<tr><td>2016-03-09</td> <td>Lee Sedol</td> <td>AlphaGo</td> <td>W+R</td> <td>186</td> <td><a href="LeeSedol/1.sgf">sgf</a></td> <td><a href="LeeSedol/1c.sgf">sgf</a></td></tr>
+<tr><td>2016-03-10</td> <td>AlphaGo</td> <td>Lee Sedol</td> <td>B+R</td> <td>211</td> <td><a href="LeeSedol/2.sgf">sgf</a></td> <td><a href="LeeSedol/2c.sgf">sgf</a></td></tr>
+<tr><td>2016-03-12</td> <td>Lee Sedol</td> <td>AlphaGo</td> <td>W+R</td> <td>176</td> <td><a href="LeeSedol/3.sgf">sgf</a></td> <td><a href="LeeSedol/3c.sgf">sgf</a></td></tr>
+<tr><td>2016-03-13</td> <td>AlphaGo</td> <td>Lee Sedol</td> <td>W+R</td> <td>180</td> <td><a href="LeeSedol/4.sgf">sgf</a></td> <td><a href="LeeSedol/4c.sgf">sgf</a></td></tr>
+<tr><td>2016-03-15</td> <td>Lee Sedol</td> <td>AlphaGo</td> <td>W+R</td> <td>280</td> <td><a href="LeeSedol/5.sgf">sgf</a></td> <td><a href="LeeSedol/5c.sgf">sgf</a></td></tr>
+</table>
+<p>
+<h2><a name="selfplay1">3 commented selfplay games</a></h2>
+Three self-play games by AlphaGo, commented by Gu Li, Zhou Ruiyang,
+and Fan Hui.
+<p>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>2016-02-29</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+2.5</td> <td>274</td> <td><a href="selfplay/1c.sgf">sgf</a></td></tr>
+<tr><td>2016-02-29</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>172</td> <td><a href="selfplay/2c.sgf">sgf</a></td></tr>
+<tr><td>2016-02-29</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>202</td> <td><a href="selfplay/3c.sgf">sgf</a></td></tr>
+</table>
+<p>
+
+<h2><a name="Master">New Year 2017</a></h2>
+Below the games played by AlphaGo (under the name Magist or Master)
+on the Tygem server 2016-12-29,30,31 and on the Foxwq server 2017-01-02,03,04.
+The server handles of the opponents are known, but it is not always known
+which real life person uses that handle. Some names in the below are
+conjectured.
+<p>
+<table border="1">
+<tr><th>#</th> <th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>1</td> <td>2016-12-29 19:01:34</td> <td>Pan Tingyu</td> <td>Magist</td> <td>W+R</td> <td>146</td> <td><a href="NewYear2017/T01.sgf">sgf</a></td></tr>
+<tr><td>2</td> <td>2016-12-29 19:20:57</td> <td>Zhang Ziliang</td> <td>Magist</td> <td>W+R</td> <td>174</td> <td><a href="NewYear2017/T02.sgf">sgf</a></td></tr>
+<tr><td>3</td> <td>2016-12-29 19:49:39</td> <td>Magist</td> <td>Ding Shixiong</td> <td>B+R</td> <td>151</td> <td><a href="NewYear2017/T03.sgf">sgf</a></td></tr>
+<tr><td>4</td> <td>2016-12-29 20:14:20</td> <td>Xie Erhao</td> <td>Magist</td> <td>W+R</td> <td>222</td> <td><a href="NewYear2017/T04.sgf">sgf</a></td></tr>
+<tr><td>5</td> <td>2016-12-29 20:51:02</td> <td>Magist</td> <td>Yu Zhiying</td> <td>B+R</td> <td>113</td> <td><a href="NewYear2017/T05.sgf">sgf</a></td></tr>
+<tr><td>6</td> <td>2016-12-29 22:02:39</td> <td>Magist</td> <td>Li Xiangyu</td> <td>B+R</td> <td>131</td> <td><a href="NewYear2017/T06.sgf">sgf</a></td></tr>
+<tr><td>7</td> <td>2016-12-29 22:40:09</td> <td>Magist</td> <td>Qiao Zhijian</td> <td>B+R</td> <td>163</td> <td><a href="NewYear2017/T07.sgf">sgf</a></td></tr>
+<tr><td>8</td> <td>2016-12-29 23:07:52</td> <td>Han Yizhou</td> <td>Magist</td> <td>W+R</td> <td>104</td> <td><a href="NewYear2017/T08.sgf">sgf</a></td></tr>
+<tr><td>9</td> <td>2016-12-29 23:30:11</td> <td>Magist</td> <td>Meng Tailing</td> <td>B+4.5</td> <td>275</td> <td><a href="NewYear2017/T09.sgf">sgf</a></td></tr>
+<tr><td>10</td> <td>2016-12-30 00:08:22</td> <td>Meng Tailing</td> <td>Magist</td> <td>W+R</td> <td>148</td> <td><a href="NewYear2017/T10.sgf">sgf</a></td></tr>
+<tr><td>11</td> <td>2016-12-30 10:02:17</td> <td>Chen Hao</td> <td>Master</td> <td>W+R</td> <td>170</td> <td><a href="NewYear2017/T11.sgf">sgf</a></td></tr>
+<tr><td>12</td> <td>2016-12-30 11:45:39</td> <td>Wang Haoyang</td> <td>Master</td> <td>W+R</td> <td>136</td> <td><a href="NewYear2017/T12.sgf">sgf</a></td></tr>
+<tr><td>13</td> <td>2016-12-30 12:06:51</td> <td>Liu Yuhang</td> <td>Master</td> <td>W+R</td> <td>144</td> <td><a href="NewYear2017/T13.sgf">sgf</a></td></tr>
+<tr><td>14</td> <td>2016-12-30 12:35:24</td> <td>Master</td> <td>Yan Zaiming</td> <td>B+R</td> <td>129</td> <td><a href="NewYear2017/T14.sgf">sgf</a></td></tr>
+<tr><td>15</td> <td>2016-12-30 13:02:15</td> <td>Park Junghwan</td> <td>Master</td> <td>W+T</td> <td>150</td> <td><a href="NewYear2017/T15.sgf">sgf</a></td></tr>
+<tr><td>16</td> <td>2016-12-30 13:52:26</td> <td>Lian Xiao</td> <td>Master</td> <td>W+R</td> <td>122</td> <td><a href="NewYear2017/T16.sgf">sgf</a></td></tr>
+<tr><td>17</td> <td>2016-12-30 14:45:18</td> <td>Lian Xiao</td> <td>Master</td> <td>W+R</td> <td>164</td> <td><a href="NewYear2017/T17.sgf">sgf</a></td></tr>
+<tr><td>18</td> <td>2016-12-30 16:15:35</td> <td>Master</td> <td>Ke Jie</td> <td>B+5.5</td> <td>228</td> <td><a href="NewYear2017/T18.sgf">sgf</a></td></tr>
+<tr><td>19</td> <td>2016-12-30 16:48:03</td> <td>Ke Jie</td> <td>Master</td> <td>W+R</td> <td>128</td> <td><a href="NewYear2017/T19.sgf">sgf</a></td></tr>
+<tr><td>20</td> <td>2016-12-30 17:14:02</td> <td>Master</td> <td>Park Junghwan</td> <td>B+5.5</td> <td>255</td> <td><a href="NewYear2017/T20.sgf">sgf</a></td></tr>
+<tr><td>21</td> <td>2016-12-31 09:30:30</td> <td>Chen Yaoye</td> <td>Master</td> <td>W+5.5</td> <td>270</td> <td><a href="NewYear2017/T21.sgf">sgf</a></td></tr>
+<tr><td>22</td> <td>2016-12-31 10:18:13</td> <td>Chen Yaoye</td> <td>Master</td> <td>W+4.5</td> <td>277</td> <td><a href="NewYear2017/T22.sgf">sgf</a></td></tr>
+<tr><td>23</td> <td>2016-12-31 13:09:13</td> <td>Master</td> <td>Kim Junghyun</td> <td>B+R</td> <td>135</td> <td><a href="NewYear2017/T23.sgf">sgf</a></td></tr>
+<tr><td>24</td> <td>2016-12-31 13:30:44</td> <td>Master</td> <td>Park Junghwan</td> <td>B+R</td> <td>223</td> <td><a href="NewYear2017/T24.sgf">sgf</a></td></tr>
+<tr><td>25</td> <td>2016-12-31 14:09:09</td> <td>Park Junghwan</td> <td>Master</td> <td>W+0.5</td> <td>261</td> <td><a href="NewYear2017/T25.sgf">sgf</a></td></tr>
+<tr><td>26</td> <td>2016-12-31 16:39:33</td> <td>Master</td> <td>Yun Chanhee</td> <td>B+R</td> <td>217</td> <td><a href="NewYear2017/T26.sgf">sgf</a></td></tr>
+<tr><td>27</td> <td>2016-12-31 16:50:18</td> <td>Master</td> <td>Fang Tingyu</td> <td>B+R</td> <td>215</td> <td><a href="NewYear2017/T27.sgf">sgf</a></td></tr>
+<tr><td>28</td> <td>2016-12-31 19:39:54</td> <td>Master</td> <td>Meng Tailing</td> <td>B+R</td> <td>163</td> <td><a href="NewYear2017/T28.sgf">sgf</a></td></tr>
+<tr><td>29</td> <td>2016-12-31 20:05:34</td> <td>Mi Yuting</td> <td>Master</td> <td>W+0.5</td> <td>311</td> <td><a href="NewYear2017/T29.sgf">sgf</a></td></tr>
+<tr><td>30</td> <td>2016-12-31 21:18:19</td> <td>Tang Weixing</td> <td>Master</td> <td>W+R</td> <td>186</td> <td><a href="NewYear2017/T30.sgf">sgf</a></td></tr>
+<tr><td>31</td> <td>2017-01-01 23:23:09</td> <td>Master</td> <td>Li Qincheng</td> <td>B+R</td> <td>179</td> <td><a href="NewYear2017/F31.sgf">sgf</a></td></tr>
+<tr><td>32</td> <td>2017-01-02 10:01:26</td> <td>Gu Li</td> <td>Master</td> <td>W+R</td> <td>154</td> <td><a href="NewYear2017/F32.sgf">sgf</a></td></tr>
+<tr><td>33</td> <td>2017-01-02 10:34:38</td> <td>Master</td> <td>Gu Li</td> <td>B+R</td> <td>191</td> <td><a href="NewYear2017/F33.sgf">sgf</a></td></tr>
+<tr><td>34</td> <td>2017-01-02 12:17:39</td> <td>Master</td> <td>Dang Yifei</td> <td>B+R</td> <td>149</td> <td><a href="NewYear2017/F34.sgf">sgf</a></td></tr>
+<tr><td>35</td> <td>2017-01-02 13:17:45</td> <td>Jiang Weijie</td> <td>Master</td> <td>W+1.5</td> <td>280</td> <td><a href="NewYear2017/F35.sgf">sgf</a></td></tr>
+<tr><td>36</td> <td>2017-01-02 14:41:33</td> <td>Master</td> <td>Gu Zihao</td> <td>B+R</td> <td>209</td> <td><a href="NewYear2017/F36.sgf">sgf</a></td></tr>
+<tr><td>37</td> <td>2017-01-02 15:16:54</td> <td>Master</td> <td>Park Yeonghun</td> <td>B+R</td> <td>173</td> <td><a href="NewYear2017/F37.sgf">sgf</a></td></tr>
+<tr><td>38</td> <td>2017-01-02 16:51:34</td> <td>Master</td> <td>Tuo Jiaxi</td> <td>B+R</td> <td>239</td> <td><a href="NewYear2017/F38.sgf">sgf</a></td></tr>
+<tr><td>39</td> <td>2017-01-02 19:40:22</td> <td>Master</td> <td>Iyama Yuta</td> <td>B+R</td> <td>135</td> <td><a href="NewYear2017/F39.sgf">sgf</a></td></tr>
+<tr><td>40</td> <td>2017-01-02 20:52:52</td> <td>Meng Tailing</td> <td>Master</td> <td>W+2.5</td> <td>274</td> <td><a href="NewYear2017/F40.sgf">sgf</a></td></tr>
+<tr><td>41</td> <td>2017-01-02 21:42:12</td> <td>Kim Jiseok</td> <td>Master</td> <td>W+R</td> <td>170</td> <td><a href="NewYear2017/F41.sgf">sgf</a></td></tr>
+<tr><td>42</td> <td>2017-01-03 10:22:04</td> <td>Master</td> <td>Yang Dingxin</td> <td>B+R</td> <td>125</td> <td><a href="NewYear2017/F42.sgf">sgf</a></td></tr>
+<tr><td>43</td> <td>2017-01-03 11:04:00</td> <td>Master</td> <td>Kang Dongyun</td> <td>B+R</td> <td>165</td> <td><a href="NewYear2017/F43.sgf">sgf</a></td></tr>
+<tr><td>44</td> <td>2017-01-03 13:51:15</td> <td>An Sungjoon</td> <td>Master</td> <td>W+2.5</td> <td>260</td> <td><a href="NewYear2017/F44.sgf">sgf</a></td></tr>
+<tr><td>45</td> <td>2017-01-03 14:46:57</td> <td>Master</td> <td>Shi Yue</td> <td>B+R</td> <td>167</td> <td><a href="NewYear2017/F45.sgf">sgf</a></td></tr>
+<tr><td>46</td> <td>2017-01-03 15:29:19</td> <td>Lian Xiao</td> <td>Master</td> <td>W+R</td> <td>144</td> <td><a href="NewYear2017/F46.sgf">sgf</a></td></tr>
+<tr><td>47</td> <td>2017-01-03 16:45:23</td> <td>Master</td> <td>Tan Xiao</td> <td>B+R</td> <td>191</td> <td><a href="NewYear2017/F47.sgf">sgf</a></td></tr>
+<tr><td>48</td> <td>2017-01-03 20:17:29</td> <td>Park Junghwan</td> <td>Master</td> <td>W+1.5</td> <td>270</td> <td><a href="NewYear2017/F48.sgf">sgf</a></td></tr>
+<tr><td>49</td> <td>2017-01-03 21:31:06</td> <td>Weon Seongjin</td> <td>Master</td> <td>W+R</td> <td>222</td> <td><a href="NewYear2017/F49.sgf">sgf</a></td></tr>
+<tr><td>50</td> <td>2017-01-03 22:13:23</td> <td>Ke Jie</td> <td>Master</td> <td>W+R</td> <td>178</td> <td><a href="NewYear2017/F50.sgf">sgf</a></td></tr>
+<tr><td>51</td> <td>2017-01-04 09:35:45</td> <td>Zhou Junxun</td> <td>Master</td> <td>W+R</td> <td>118</td> <td><a href="NewYear2017/F51.sgf">sgf</a></td></tr>
+<tr><td>52</td> <td>2017-01-04 10:40:25</td> <td>Fan Tingyu</td> <td>Master</td> <td>W+R</td> <td>202</td> <td><a href="NewYear2017/F52.sgf">sgf</a></td></tr>
+<tr><td>53</td> <td>2017-01-04 11:27:35</td> <td>Master</td> <td>Huang Yunsong</td> <td>B+R</td> <td>133</td> <td><a href="NewYear2017/F53.sgf">sgf</a></td></tr>
+<tr><td>54</td> <td>2017-01-04 15:02:36</td> <td>Master</td> <td>Nie Weiping</td> <td>B+7.5</td> <td>254</td> <td><a href="NewYear2017/F54.sgf">sgf</a></td></tr>
+<tr><td>55</td> <td>2017-01-04 16:05:42</td> <td>Chen Yaoye</td> <td>Master</td> <td>W+1.5</td> <td>267</td> <td><a href="NewYear2017/F55.sgf">sgf</a></td></tr>
+<tr><td>56</td> <td>2017-01-04 17:06:57</td> <td>Master</td> <td>Cho Hanseung</td> <td>B+R</td> <td>171</td> <td><a href="NewYear2017/F56.sgf">sgf</a></td></tr>
+<tr><td>57</td> <td>2017-01-04 19:35:45</td> <td>Master</td> <td>Shin Jinseo</td> <td>B+R</td> <td>139</td> <td><a href="NewYear2017/F57.sgf">sgf</a></td></tr>
+<tr><td>58</td> <td>2017-01-04 20:23:36</td> <td>Chang Hao</td> <td>Master</td> <td>W+R</td> <td>178</td> <td><a href="NewYear2017/F58.sgf">sgf</a></td></tr>
+<tr><td>59</td> <td>2017-01-04 21:18:23</td> <td>Master</td> <td>Zhou Ruiyang</td> <td>B+R</td> <td>161</td> <td><a href="NewYear2017/F59.sgf">sgf</a></td></tr>
+<tr><td>60</td> <td>2017-01-04 22:33:58</td> <td>Gu Li</td> <td>Master</td> <td>W+2.5</td> <td>235</td> <td><a href="NewYear2017/F60.sgf">sgf</a></td></tr>
+</table>
+<p>
+<h2><a name="Wuzhen">The Future of Go Summit</a></h2>
+On May 23-27, 2017 the "Future of Go Summit" was held in Wuzhen, China.
+It featured a 3-game match between AlphaGo and Ke Jie,
+a pairgo match between Gu Li + AlphaGo against Lian Xiao + AlphaGo,
+and a teamgo match between a team consisting of
+Chen Yaoye, Zhou Ruiyang, Mi Yuting, Shi Yue, and Tang Weixing
+against AlphaGo.
+
+<h3><a name="KeJie">Match with Ke Jie</a></h3>
+AlphaGo won 3-0.
+<p>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>2017-05-23</td> <td>Ke Jie</td> <td>AlphaGo</td> <td>W+0.5</td> <td>289</td> <td><a href="May2017/1.sgf">sgf</a></td></tr>
+<tr><td>2017-05-25</td> <td>AlphaGo</td> <td>Ke Jie</td> <td>B+R</td> <td>155</td> <td><a href="May2017/2.sgf">sgf</a></td></tr>
+<tr><td>2017-05-27</td> <td>AlphaGo</td> <td>Ke Jie</td> <td>B+R</td> <td>209</td> <td><a href="May2017/5.sgf">sgf</a></td></tr>
+</table>
+
+<h3><a name="pairgo">Pairgo</a></h3>
+The pairgo game was won by Lian Xiao + AlphaGo.
+The AlphaGo part of the losing team suggested to resign, but Gu Li refused at first,
+and agreed only when AlphaGo made the same suggestion a second time, some moves later.
+<p>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>2017-05-26</td> <td>Gu Li & AlphaGo</td> <td>Lian Xiao & AlphaGo</td> <td>W+R</td> <td>220</td> <td><a href="May2017/3.sgf">sgf</a></td></tr>
+</table>
+
+<h3><a name="teamgo">Teamgo</a></h3>
+AlphaGo won.
+<p>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>2017-05-26</td> <td>Chen Yaoye, Zhou Ruiyang, Mi Yuting, Shi Yue, Tang Weixing</td> <td>AlphaGo</td> <td>W+R</td> <td>254</td> <td><a href="May2017/4.sgf">sgf</a></td></tr>
+</table>
+<p>
+At the end the pro team played a tricky move in order to perhaps
+gain one or two points. AlphaGo generously gave them much more - it was
+so far ahead that that made no difference. The reaction:
+<p>
+<img src="May2017/facepalm.jpg" alt="facepalm">
+<p>
+<h2><a name="selfplay2">50 selfplay games</a></h2>
+DeepMind published 50 more self-play games by AlphaGo,
+the first 10 on 2017-05-27, the other 40 on 2017-05-28.
+<p>
+<table border="1">
+<tr><th>#</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th></tr>
+<tr><td>1</td> <td>Alphago</td> <td>AlphaGo</td> <td>W+R</td> <td>256</td> <td><a href="selfplay2/G01.sgf">sgf</a></td></tr>
+<tr><td>2</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>312</td> <td><a href="selfplay2/G02.sgf">sgf</a></td></tr>
+<tr><td>3</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>206</td> <td><a href="selfplay2/G03.sgf">sgf</a></td></tr>
+<tr><td>4</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>244</td> <td><a href="selfplay2/G04.sgf">sgf</a></td></tr>
+<tr><td>5</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>307</td> <td><a href="selfplay2/G05.sgf">sgf</a></td></tr>
+<tr><td>6</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>240</td> <td><a href="selfplay2/G06.sgf">sgf</a></td></tr>
+<tr><td>7</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>272</td> <td><a href="selfplay2/G07.sgf">sgf</a></td></tr>
+<tr><td>8</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>236</td> <td><a href="selfplay2/G08.sgf">sgf</a></td></tr>
+<tr><td>9</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>255</td> <td><a href="selfplay2/G09.sgf">sgf</a></td></tr>
+<tr><td>10</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>266</td> <td><a href="selfplay2/G10.sgf">sgf</a></td></tr>
+<tr><td>11</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>279</td> <td><a href="selfplay2/G11.sgf">sgf</a></td></tr>
+<tr><td>12</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>180</td> <td><a href="selfplay2/G12.sgf">sgf</a></td></tr>
+<tr><td>13</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>182</td> <td><a href="selfplay2/G13.sgf">sgf</a></td></tr>
+<tr><td>14</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>308</td> <td><a href="selfplay2/G14.sgf">sgf</a></td></tr>
+<tr><td>15</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>285</td> <td><a href="selfplay2/G15.sgf">sgf</a></td></tr>
+<tr><td>16</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>224</td> <td><a href="selfplay2/G16.sgf">sgf</a></td></tr>
+<tr><td>17</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>256</td> <td><a href="selfplay2/G17.sgf">sgf</a></td></tr>
+<tr><td>18</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>250</td> <td><a href="selfplay2/G18.sgf">sgf</a></td></tr>
+<tr><td>19</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>248</td> <td><a href="selfplay2/G19.sgf">sgf</a></td></tr>
+<tr><td>20</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>299</td> <td><a href="selfplay2/G20.sgf">sgf</a></td></tr>
+<tr><td>21</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>318</td> <td><a href="selfplay2/G21.sgf">sgf</a></td></tr>
+<tr><td>22</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>315</td> <td><a href="selfplay2/G22.sgf">sgf</a></td></tr>
+<tr><td>23</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>296</td> <td><a href="selfplay2/G23.sgf">sgf</a></td></tr>
+<tr><td>24</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>264</td> <td><a href="selfplay2/G24.sgf">sgf</a></td></tr>
+<tr><td>25</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>206</td> <td><a href="selfplay2/G25.sgf">sgf</a></td></tr>
+<tr><td>26</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>204</td> <td><a href="selfplay2/G26.sgf">sgf</a></td></tr>
+<tr><td>27</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>290</td> <td><a href="selfplay2/G27.sgf">sgf</a></td></tr>
+<tr><td>28</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>329</td> <td><a href="selfplay2/G28.sgf">sgf</a></td></tr>
+<tr><td>29</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>202</td> <td><a href="selfplay2/G29.sgf">sgf</a></td></tr>
+<tr><td>30</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>288</td> <td><a href="selfplay2/G30.sgf">sgf</a></td></tr>
+<tr><td>31</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>312</td> <td><a href="selfplay2/G31.sgf">sgf</a></td></tr>
+<tr><td>32</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>186</td> <td><a href="selfplay2/G32.sgf">sgf</a></td></tr>
+<tr><td>33</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>346</td> <td><a href="selfplay2/G33.sgf">sgf</a></td></tr>
+<tr><td>34</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>215</td> <td><a href="selfplay2/G34.sgf">sgf</a></td></tr>
+<tr><td>35</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>270</td> <td><a href="selfplay2/G35.sgf">sgf</a></td></tr>
+<tr><td>36</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>305</td> <td><a href="selfplay2/G36.sgf">sgf</a></td></tr>
+<tr><td>37</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>256</td> <td><a href="selfplay2/G37.sgf">sgf</a></td></tr>
+<tr><td>38</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>236</td> <td><a href="selfplay2/G38.sgf">sgf</a></td></tr>
+<tr><td>39</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>276</td> <td><a href="selfplay2/G39.sgf">sgf</a></td></tr>
+<tr><td>40</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>266</td> <td><a href="selfplay2/G40.sgf">sgf</a></td></tr>
+<tr><td>41</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>262</td> <td><a href="selfplay2/G41.sgf">sgf</a></td></tr>
+<tr><td>42</td> <td>Alphago</td> <td>AlphaGo</td> <td>B+R</td> <td>309</td> <td><a href="selfplay2/G42.sgf">sgf</a></td></tr>
+<tr><td>43</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>256</td> <td><a href="selfplay2/G43.sgf">sgf</a></td></tr>
+<tr><td>44</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>258</td> <td><a href="selfplay2/G44.sgf">sgf</a></td></tr>
+<tr><td>45</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>340</td> <td><a href="selfplay2/G45.sgf">sgf</a></td></tr>
+<tr><td>46</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>307</td> <td><a href="selfplay2/G46.sgf">sgf</a></td></tr>
+<tr><td>47</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>321</td> <td><a href="selfplay2/G47.sgf">sgf</a></td></tr>
+<tr><td>48</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>276</td> <td><a href="selfplay2/G48.sgf">sgf</a></td></tr>
+<tr><td>49</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>304</td> <td><a href="selfplay2/G49.sgf">sgf</a></td></tr>
+<tr><td>50</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>286</td> <td><a href="selfplay2/G50.sgf">sgf</a></td></tr>
+</table>
+<p>
+<h2><a name="selfplay3">5 selfplay videos</a></h2>
+<p>
+<table border="1">
+<tr><th>date</th> <th>black</th> <th>white</th> <th>result</th> <th>#mv</th> <th>sgf</th> <th>video</th></tr>
+<tr><td>2017-07-01</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>210</td> <td><a href="selfplay3/V1.sgf">sgf</a></td> <td><a href="https://www.youtube.com/watch?v=E3g-kBtqtMo">video</a></td></tr>
+<tr><td>2017-07-01</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+1.5</td> <td>303</td> <td><a href="selfplay3/V2.sgf">sgf</a></td> <td><a href="https://www.youtube.com/watch?v=0uTlyJ4ITnQ">video</a></td></tr>
+<tr><td>2017-07-01</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+R</td> <td>222</td> <td><a href="selfplay3/V3.sgf">sgf</a></td> <td><a href="https://www.youtube.com/watch?v=Ukt3mSBZKF0">video</a></td></tr>
+<tr><td>2017-07-01</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>B+R</td> <td>253</td> <td><a href="selfplay3/V4.sgf">sgf</a></td> <td><a href="https://www.youtube.com/watch?v=gTQJTG1sncY">video</a></td></tr>
+<tr><td>2017-07-01</td> <td>AlphaGo</td> <td>AlphaGo</td> <td>W+0.5</td> <td>313</td> <td><a href="selfplay3/V5.sgf">sgf</a></td> <td><a href="https://www.youtube.com/watch?v=fX7eARe5a0M">video</a></td></tr>
+</table>
+<p>
+<h2><a name="Zero">AlphaGo Zero</a></h2>
+In Oct 2017, DeepMind published (again in Nature) a description of
+AlphaGo Zero, a version of AlphaGo that was not trained on human games
+but had learned using self-play only.
+<blockquote><font size="-2">
+David Silver, Julian Schrittwieser, Karen Simonyan, Ioannis Antonoglou,
+Aja Huang, Arthur Guez, Thomas Hubert, Lucas Baker, Matthew Lai,
+Adrian Bolton, Yutian Chen, Timothy Lillicrap, Fan Hui, Laurent Sifre,
+George van den Driessche, Thore Graepel & Demis Hassabis,
+<i>Mastering the game of Go without human knowledge</i>,
+Nature <b>550</b> (19 October 2017) 354–359.
+</font></blockquote>
+After 3 days of self-play (and 4.9 million games) it defeated
+the version that earlier had defeated Lee Sedol 100-0.
+This was the "20-block" version.
+Another version (with 40 residual blocks) also started from scratch,
+and after 40 days of self-play (and 29 million games) it defeated
+AlphaGo Master 89-11.
+<p>
+This publication comes with 83 SGFs, given below.
+
+<h3>AlphaGo Zero (20 blocks) vs AlphaGo Lee</h3>
+<p>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/01.sgf">1</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/02.sgf">2</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/03.sgf">3</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/04.sgf">4</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/05.sgf">5</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/06.sgf">6</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/07.sgf">7</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/08.sgf">8</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/09.sgf">9</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/10.sgf">10</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/11.sgf">11</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/12.sgf">12</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/13.sgf">13</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/14.sgf">14</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/15.sgf">15</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/16.sgf">16</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/17.sgf">17</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/18.sgf">18</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/19.sgf">19</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_vs_AlphaGo_Lee/20.sgf">20</a>
+<p>
+<a href="https://www.nature.com/nature/journal/v550/n7676/fig_tab/nature24270_SF1.html">Diagrams for the first 100 moves</a>.
+<p>
+AlphaGo Zero scored 20-0. (And 100-0 over 100 games.)
+
+<h3>AlphaGo Zero (20 blocks) self-play games</h3>
+The 3-day training run was subdivided into 20 periods.
+The best player from each period (as selected by the evaluator)
+played a single game against itself, with 2h time controls.
+This produced the below 20 games.
+<p>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/01.sgf">1</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/02.sgf">2</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/03.sgf">3</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/04.sgf">4</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/05.sgf">5</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/06.sgf">6</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/07.sgf">7</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/08.sgf">8</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/09.sgf">9</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/10.sgf">10</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/11.sgf">11</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/12.sgf">12</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/13.sgf">13</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/14.sgf">14</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/15.sgf">15</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/16.sgf">16</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/17.sgf">17</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/18.sgf">18</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/19.sgf">19</a>
+<a href="Nature2017/AlphaGo_Zero_20_block_self-play_games/20.sgf">20</a>
+<p>
+<a href="https://www.nature.com/nature/journal/v550/n7676/fig_tab/nature24270_SF4.html">Diagrams for the first 100 moves</a>.
+<p>
+B won 8 times, W 12 times.
+
+<h3>AlphaGo Zero (40 blocks) self-play games</h3>
+The 40-day training run was subdivided into 20 periods.
+The best player from each period (as selected by the evaluator)
+played a single game against itself, with 2h time controls.
+This produced the below 20 games.
+<p>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/01.sgf">1</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/02.sgf">2</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/03.sgf">3</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/04.sgf">4</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/05.sgf">5</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/06.sgf">6</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/07.sgf">7</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/08.sgf">8</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/09.sgf">9</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/10.sgf">10</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/11.sgf">11</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/12.sgf">12</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/13.sgf">13</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/14.sgf">14</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/15.sgf">15</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/16.sgf">16</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/17.sgf">17</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/18.sgf">18</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/19.sgf">19</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_self-play_games/20.sgf">20</a>
+<p>
+<a href="https://www.nature.com/nature/journal/v550/n7676/fig_tab/nature24270_SF5.html">Diagrams for the first 100 moves</a>.
+<p>
+B won 6 times, W 14 times.
+
+<h3>AlphaGo Zero (40 blocks, 40 days) vs AlphaGo Master</h3>
+<p>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/01.sgf">1</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/02.sgf">2</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/03.sgf">3</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/04.sgf">4</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/05.sgf">5</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/06.sgf">6</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/07.sgf">7</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/08.sgf">8</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/09.sgf">9</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/10.sgf">10</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/11.sgf">11</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/12.sgf">12</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/13.sgf">13</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/14.sgf">14</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/15.sgf">15</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/16.sgf">16</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/17.sgf">17</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/18.sgf">18</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/19.sgf">19</a>
+<a href="Nature2017/AlphaGo_Zero_40_block_vs_AlphaGo_Master/20.sgf">20</a>
+<p>
+<a href="https://www.nature.com/nature/journal/v550/n7676/fig_tab/nature24270_SF6.html">Diagrams for the first 100 moves</a>.
+<p>
+AlphaGo Zero scored 17-3. (And 89-11 over 100 games.)
+<p>
+
+<h3>AlphaGo Zero Timeline</h3>
+Three self-play games, played after 3h, 19h and 70h of training.
+<p>
+<a href="Nature2017/AlphaGo_Zero_Timeline/Fig5c_Game1.sgf">1</a>
+<a href="Nature2017/AlphaGo_Zero_Timeline/Fig5c_Game2.sgf">2</a>
+<a href="Nature2017/AlphaGo_Zero_Timeline/Fig5c_Game3.sgf">3</a>
+<p>
+<a href="https://www.nature.com/nature/journal/v550/n7676/fig_tab/nature24270_F5.html">Diagrams for the first 80 moves</a> (and further details).
+<p>
+</body>
+</html>

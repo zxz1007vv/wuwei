@@ -1,0 +1,21 @@
+(;
+EV[AI Ryusei 2017]
+RO[Preliminary, Round 6]
+PB[Deep_ark]
+PW[Mayoigo]
+KM[6.5]
+RE[B+R]
+DT[2017-12-09]
+RU[Japanese]
+C[Black wins by program's resignation.]
+
+;B[dp];W[ch];B[qp];W[gh];B[pc];W[nq];B[pq];W[he];B[cc];W[ni]
+;B[qe];W[pd];B[qd];W[qn];B[oo];W[ll];B[mp];W[il];B[mq];W[id]
+;B[cn];W[dn];B[dm];W[nc];B[fc];W[fk];B[nf];W[np];B[no];W[nr]
+;B[mr];W[oi];B[md];W[pe];B[pf];W[go];B[en];W[bo];B[bn];W[oe]
+;B[of];W[le];B[mc];W[mj];B[lg];W[ne];B[me];W[nd];B[nb];W[ko]
+;B[jq];W[dk];B[cf];W[hp];B[qi];W[ep];B[eq];W[oc];B[ob];W[eo]
+;B[do];W[pb];B[od];W[ms];B[kr];W[ee];B[dd];W[hm];B[ql];W[eh]
+;B[kh];W[hn];B[nl];W[bl];B[fq];W[mo];B[mn];W[an];B[am];W[bm]
+;B[ao];W[gd];B[kj];W[jh];B[ji];W[fp];B[gq];W[om];B[ol];W[jm]
+;B[lk];W[lo];B[ml];W[ap];B[an];W[cq];B[dq];W[br];B[bp])

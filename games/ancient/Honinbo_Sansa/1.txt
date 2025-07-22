@@ -1,0 +1,25 @@
+The game 1.sgf is famous. It is supposed to be the game
+played by Nikkai against Kashio Rigen while the warlord
+Oda Nobunaga watched, the night before his death.
+
+A triple-ko is said to have occurred in this game.
+However, no triple ko occurs in the 128 moves of 1.sgf.
+Maybe it occurred later that game, or in another game played
+the same day?
+
+Sources say about Nobunaga: "On June 21, 1582, his retainer Akechi Mitsuhide
+attacked him at Honno Temple; Nobunaga, his eldest son, his bodyguards and
+his wakashu, Mori Ranmaru, died."
+
+The date of the death of Nobunaga is 天正10年6月2日, that is
+Tenshō 10-6-2, that is 1582-06-21. The evening before then was
+Tenshō 10-6-1, that is 1582-06-20, and the 6-1 explains Western
+versions with "June 1".
+
+GoGoD has 1582-06-30 as equivalent of Tenshō 10-6-1, a date 10 days
+too late, probably dated using the Gregorian calender (which was adopted
+first 1582-10-04 (Julian), the next day being 1582-10-15 (Gregorian)).
+
+GoGoD has a slightly different order of the moves, with the exchange
+bb,ab at move 123-124, instead of 127-128.
+The current version is from Segoe Kensaku's Oshirogo (1978).

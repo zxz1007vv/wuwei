@@ -1,0 +1,29 @@
+(;
+EV[Go-Shogi 2-game simultaneous match]
+PB[Watanabe Akira]
+BR[Shogi Meijin]
+PW[Cho Chikun]
+WR[honorary Meijin]
+KM[0]
+RE[B+R]
+DT[2020-08-26]
+HA[9]
+AB[dd][dj][dp][jd][jj][jp][pd][pj][pp]
+GC[In two simultaneous games of go (9-stone handicap)
+and shogi (4 pieces down), the weaker players won.
+A 2nd edition of this event was played on 2020-11-14.] 
+SO[https://www.asahi.com/articles/ASNBW7SBCNBWUCLV00P.html
+Here one can also find the shogi game record.
+Video on https://www.youtube.com/watch?v=FqSP57kR7eU .]
+
+;W[qf];B[nc];W[rd];B[qc];W[qh];B[qm];W[fq];B[eq];W[fp];B[cn]
+;W[hp];B[lq];W[gm];B[cf];W[hc];B[fc];W[he];B[id];W[hd];B[ld]
+;W[fd];B[ed];W[fb];B[eb];W[gc];B[ec];W[jb];B[rc];W[rj];B[rk]
+;W[qk];B[qj];W[rl];B[sk];W[sl];B[ri];W[sj];B[qi];W[pk];B[rh]
+;W[oj];B[qg];W[ok];B[pf];W[nq];B[oq];W[np];B[jm];W[lp];B[kp]
+;W[lr];B[rp];W[kq];B[jq];W[mq];B[or];W[lm];B[jg];W[cl];B[ck]
+;W[dl];B[ch];W[ej];B[ei];W[fj];B[fr];W[gr];B[er];W[fi];B[eh]
+;W[jh];B[hm];W[hn];B[in];W[hl];B[im];W[gn];B[lo];W[mo];B[ln]
+;W[mn];B[km];W[ll];B[ih];W[ii];B[ji];W[kh];B[hk];W[ig];B[hh]
+;W[hi];B[gg];W[gl];B[lj];W[mi];B[hr];W[ir];B[mj];W[ni];B[mm]
+;W[nm];B[kl];W[ml];B[il];W[hq];B[lb];W[ki];B[kj])

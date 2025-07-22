@@ -1,0 +1,25 @@
+(;
+EV[Go-Shogi 2-game simultaneous match]
+PB[Watanabe Akira]
+BR[Shogi Meijin]
+PW[Cho Chikun]
+WR[honorary Meijin]
+KM[0]
+RE[0]
+DT[2020-11-14]
+HA[6]
+AB[dd][dj][dp][pd][pj][pp]
+GC[The first edition of this event was played on 2020-08-26.
+This time the handicaps are smaller: for go a 6-stone handicap,
+and for shogi 2 pieces down.]
+
+;W[fq];B[cn];W[nq];B[qn];W[fc];B[df];W[nc];B[pf];W[jd];B[jp]
+;W[pr];B[eq];W[fp];B[jn];W[fm];B[qq];W[lq];B[hc];W[hd];B[id]
+;W[ie];B[ic];W[gd];B[jc];W[kd];B[lb];W[md];B[gb];W[mn];B[jl]
+;W[pm];B[qm];W[pl];B[qr];W[jj];B[hk];W[hm];B[gl];W[gm];B[hq]
+;W[jr];B[db];W[ql];B[qj];W[pn];B[po];W[qc];B[qd];W[pc];B[od]
+;W[oh];B[ph];W[og];B[pg];W[lk];B[ll];W[ml];B[kk];W[kj];B[lj]
+;W[mk];B[ij];W[jk];B[il];W[dm];B[er];W[cm];B[bn];W[fj];B[ii]
+;W[kl];B[cj];W[fl];B[fr];W[io];B[jo];W[ip];B[iq];W[jq];B[in]
+;W[ho];B[hn];W[go];B[gh];W[fh];B[gf];W[gi];B[hh];W[fg];B[ff]
+;W[dg];B[ef];W[cg];B[hf];W[bm])

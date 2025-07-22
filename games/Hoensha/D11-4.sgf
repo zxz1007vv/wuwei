@@ -1,0 +1,22 @@
+(;
+EV[Hoensha game]
+PB[Hayashi Sano]
+PW[Iwasaki Kenzo]
+KM[0]
+RE[W+R]
+DT[1882-08-20]
+HA[2]
+AB[dp][pd]
+
+;W[qp];B[cd];W[ec];B[ic];W[nc];B[dc];W[ed];B[df];W[ie];B[kd]
+;W[oe];B[pe];W[ke];B[le];W[jd];B[jc];W[kc];B[ld];W[lc];B[he]
+;W[lf];B[fe];W[me];B[qh];W[hf];B[id];W[je];B[gd];W[gf];B[ff]
+;W[ch];B[cg];W[ge];B[fd];W[hd];B[gc];W[qj];B[oq];W[lp];B[po]
+;W[pp];B[op];W[oo];B[qo];W[ro];B[rp];W[rq];B[qq];W[sp];B[pq]
+;W[rp];B[pm];W[no];B[qm];W[qr];B[lr];W[nr];B[nq];W[kr];B[kq]
+;W[lq];B[jr];W[mr];B[ks];W[mq];B[pi];W[pk];B[nn];W[nk];B[mo]
+;W[on];B[om];W[mn];B[nm];W[lo];B[mm];W[ln];B[ni];W[oj];B[mk]
+;W[mj];B[nj];W[oi];B[oh];W[rl];B[nh];W[lk];B[ml];W[rm];B[lj]
+;W[mi];B[kk];W[li];B[ll];W[ki];B[rj];W[qk];B[gp];W[qf];B[pf]
+;W[rd];B[qc];W[qg];B[pg];W[rh];B[ri];W[qi];B[rg];W[ph];B[pn]
+;W[rf];B[np];W[pr])
