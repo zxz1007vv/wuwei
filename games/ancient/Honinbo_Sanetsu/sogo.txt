@@ -1,7 +1,0 @@
-In 1645-1653, a six-game match (sogo, 争碁) was held
-between Honinbo San'etsu and Yasui Sanchi II
-for the post of Meijin Godokoro.
-It ended in a 3-3 draw (Black winnning every game).
-
-These six games were played as Castle Games,
-and are found in ../castle as cg00[456789].sgf.

@@ -1,8 +1,0 @@
-The games here are from the publication
-"Mastering the game of Go without human knowledge"
-by David Silver, Julian Schrittwieser, Karen Simonyan,
-Ioannis Antonoglou, Aja Huang, Arthur Guez, Thomas Hubert,
-Lucas Baker, Matthew Lai, Adrian Bolton, Yutian Chen,
-Timothy Lillicrap, Fan Hui, Laurent Sifre, George van den Driessche,
-Thore Graepel & Demis Hassabis
-in Nature 550, 354–359 (19 October 2017).

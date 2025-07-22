@@ -1,8 +1,0 @@
-$ sgfcmp -1 1.sgf 1c.sgf
-warning: 1c.sgf flattened
-comparing  1.sgf  with the result of 'sgftf < 1c.sgf':
-moves 2,4,180-183 : dd,dp,cj,al,nm,pm vs dp,dd,nm,pm,cj,al
-
-The commented game #1 differs from the actual game #1 (rotated
-by 180 degrees) in six places. Here 1.sgf agrees with the video,
-and 1c.sgf is wrong.
