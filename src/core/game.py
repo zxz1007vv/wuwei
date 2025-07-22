@@ -4,6 +4,22 @@ import time
 from sgfmill import sgf
 
 
+# Color and coordinate mappings
+COLOR_CHAR_TO_INDEX = {'B': 1, 'W': -1, 'b': 1, 'w': -1}
+INDEX_TO_COLOR_CHAR = {1: 'B', -1: 'W'}
+INDEX_TO_CHAR = []
+CHAR_TO_INDEX = {}
+
+# Initialize coordinate mappings
+char = ord('A')
+for i in range(19):
+    INDEX_TO_CHAR.append(chr(char))
+    CHAR_TO_INDEX[chr(char)] = i
+    char += 1
+    if char == ord('I'):
+        char += 1
+
+
 class Go:
     def __init__(self, size=19):
         self.size = size
@@ -115,6 +131,14 @@ def toPosition(digit):
     y = digit % 19
     return x, y
 
+
+def toStrPosition(x, y):
+        """Convert coordinates to string representation"""
+        if (x, y) == (None, None):
+            return ''
+        x = 19 - x
+        y = INDEX_TO_CHAR[y]
+        return f'{y}{x}'
 
 def testKill():
     go = Go()

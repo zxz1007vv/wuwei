@@ -1,8 +1,7 @@
 import numpy as np
 import torch
 import sys
-from src.core.game import toPosition
-
+from src.core.game import toPosition, toStrPosition
 
 class MCTSNode:
     def __init__(self, go, willPlayColor, parent):
@@ -24,7 +23,6 @@ class MCTSNode:
         return self.Q / self.N + np.sqrt(2 * np.log(self.parent.N) / self.N)
 
     def __str__(self):
-        from .engine import toStrPosition
         if len(self.go.history) == 0:
             strPosition = "root"
         else:

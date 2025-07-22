@@ -5,4 +5,4 @@ AI模块
 
 from .networks import PolicyNetwork, PlayoutNetwork, ValueNetwork
 from .mcts import MCTSNode, MCTS
-from .engine import genMovePolicy, genMoveMCTS 
+from .engine import Engine
