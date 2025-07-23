@@ -3,6 +3,7 @@ from src.core.game import *
 import torch
 from src.core.features import getAllFeatures
 # import matplotlib.pyplot as plt
+import os
 
 colorCharToIndex = {'B': 1, 'W': -1, 'b': 1, 'w': -1}
 
@@ -147,6 +148,7 @@ def prepareValueData(fileCount):
 
 def main():
     """数据准备主函数"""
+    os.makedirs('models', exist_ok=True)
     preparePolicyData(2000)
     prepareValueData(20000)
 

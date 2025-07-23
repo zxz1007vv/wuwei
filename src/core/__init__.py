@@ -3,5 +3,5 @@
 包含游戏规则和特征提取
 """
 
-from .game import Go, toDigit, toPosition
+from .game import Go, toDigit, toPosition, toStrPosition
 from .features import getAllFeatures 

@@ -1,18 +1,13 @@
 from src.ai.networks import *
 from src.core.game import *
 import sys
-from src.ai.engine import genMovePolicy, genMoveMCTS, colorCharToIndex, charToIndex
+from src.ai.engine import Engine
+from src.core.game import CHAR_TO_INDEX as charToIndex
+from src.core.game import COLOR_CHAR_TO_INDEX as colorCharToIndex
 
-def main():
+def main(use_mcts=False):
     go = Go()
-
-    # 检查是否启用MCTS模式
-    use_mcts = False
-    if len(sys.argv) >= 3 and sys.argv[2] == 'MCTS':
-        use_mcts = True
-        sys.stderr.write('启动wuwei (MCTS模式)...\n')
-    else:
-        sys.stderr.write('启动wuwei (策略网络模式)...\n')
+    ai = Engine()
 
     # stderr output 'GTP ready'
     sys.stderr.write('GTP ready\n')
@@ -59,9 +54,9 @@ def main():
             colorChar = line.split()[1]
             willPlayColor = colorCharToIndex[colorChar]
             if use_mcts:
-                genMoveMCTS(go, willPlayColor)
+                ai.gen_move_mcts(go, willPlayColor)
             else:
-                genMovePolicy(go, willPlayColor)
+                ai.gen_move_policy(go, willPlayColor)
 
         elif line.startswith('showboard'):
             for i in range(19):
@@ -104,4 +99,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(False if len(sys.argv) < 2 else sys.argv[1] == 'mcts')

@@ -1,7 +1,7 @@
 games.7z
 games/
 *.pyc
-__pycache__/
+**/__pycache__/**
 *.pyo
 *.pyd
 .Python
@@ -20,3 +20,5 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+models/
+logs/

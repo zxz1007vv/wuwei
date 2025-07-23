@@ -3,156 +3,143 @@ import numpy as np
 import sys
 import os
 from src.ai.networks import PolicyNetwork, PlayoutNetwork, ValueNetwork
-from src.core.game import Go, toPosition
+from src.core.game import Go, toPosition, toStrPosition
 from src.core.features import getAllFeatures
 from src.ai.mcts import MCTSNode, MCTS
 
-# 设置随机种子
-torch.manual_seed(0)
-torch.cuda.manual_seed_all(0)
-np.random.seed(0)
+class Engine:
 
-# 获取程序路径
-programPath = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))) + '/'
+    def __init__(self, path=None):
+        # Set random seeds
+        torch.manual_seed(0)
+        torch.cuda.manual_seed_all(0)
+        np.random.seed(0)
 
-# 加载预训练模型
-policyNet = PolicyNetwork()
-policyNet.load_state_dict(torch.load(programPath + 'models/policyNet.pt'))
+        # Get program path
+        path = path if path else os.path.dirname(os.path.dirname(
+            os.path.dirname(os.path.realpath(__file__)))) + '/'
 
-playoutNet = PlayoutNetwork()
-playoutNet.load_state_dict(torch.load(programPath + 'models/playoutNet.pt'))
+        # Load pre-trained models
+        self.policy_net = PolicyNetwork()
+        self.policy_net.load_state_dict(
+            torch.load(path + 'models/policyNet.pt'))
 
-valueNet = ValueNetwork()
-valueNet.load_state_dict(torch.load(programPath + 'models/valueNet.pt'))
+        self.playout_net = PlayoutNetwork()
+        self.playout_net.load_state_dict(
+            torch.load(path + 'models/playoutNet.pt'))
 
-# 颜色和坐标转换
-colorCharToIndex = {'B': 1, 'W': -1, 'b': 1, 'w': -1}
-indexToColorChar = {1: 'B', -1: 'W'}
-indexToChar = []
-charToIndex = {}
-char = ord('A')
-
-for i in range(19):
-    indexToChar.append(chr(char))
-    charToIndex[chr(char)] = i
-    char += 1
-    if char == ord('I'):
-        char += 1
+        self.value_net = ValueNetwork()
+        self.value_net.load_state_dict(torch.load(path + 'models/valueNet.pt'))
 
 
-def toStrPosition(x, y):
-    """将坐标转换为字符串表示"""
-    if (x, y) == (None, None):
-        return ''
-    x = 19 - x
-    y = indexToChar[y]
-    return f'{y}{x}'
+    def get_policy_net_result(self, go, will_play_color):
+        """Get policy network prediction"""
+        input_data = getAllFeatures(go, will_play_color)
+        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19)
+        predict = self.policy_net(input_data)[0]
+        return predict
 
+    def get_playout_net_result(self, go, will_play_color):
+        """Get playout network prediction"""
+        input_data = getAllFeatures(go, will_play_color)
+        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19)
+        predict = self.playout_net(input_data)[0]
+        return predict
 
-def getPolicyNetResult(go, willPlayColor):
-    """获取策略网络的预测结果"""
-    inputData = getAllFeatures(go, willPlayColor)
-    inputData = torch.tensor(inputData).bool().reshape(1, -1, 19, 19)
-    predict = policyNet(inputData)[0]
-    return predict
+    def get_value_net_result(self, go, will_play_color):
+        """Get value network prediction"""
+        input_data = getAllFeatures(go, will_play_color)
+        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19)
+        value = self.value_net(input_data)[0].item()
+        return value
 
+    def get_value_result(self, go, will_play_color):
+        """Get simple value evaluation (based on piece count difference)"""
+        count_this_color = np.sum(go.board == will_play_color)
+        count_another_color = np.sum(go.board == -will_play_color)
+        return count_this_color - count_another_color
 
-def getPlayoutNetResult(go, willPlayColor):
-    """获取快速策略网络的预测结果"""
-    inputData = getAllFeatures(go, willPlayColor)
-    inputData = torch.tensor(inputData).bool().reshape(1, -1, 19, 19)
-    predict = playoutNet(inputData)[0]
-    return predict
+    def gen_move_policy(self, go, will_play_color):
+        """Generate move using policy network"""
+        predict = self.get_policy_net_result(go, will_play_color)
+        predict_reverse_sort_index = reversed(torch.argsort(predict))
 
+        # Output valueNet result to stderr
+        value = self.get_value_result(go, will_play_color)
+        sys.stderr.write(f'{will_play_color} {value}\n')
 
-def getValueNetResult(go, willPlayColor):
-    """获取价值网络的预测结果"""
-    inputData = getAllFeatures(go, willPlayColor)
-    inputData = torch.tensor(inputData).bool().reshape(1, -1, 19, 19)
-    value = valueNet(inputData)[0].item()
-    return value
+        for predict_index in predict_reverse_sort_index:
+            x, y = toPosition(predict_index)
+            if (x, y) == (None, None):
+                print('pass')
+                return
+            move_result = go.move(will_play_color, x, y)
+            str_position = toStrPosition(x, y)
 
+            if move_result == False:
+                sys.stderr.write(f'Illegal move: {str_position}\n')
+            else:
+                print(str_position)
+                break
 
-def getValueResult(go, willPlayColor):
-    """获取简单的价值评估（基于棋子数量差）"""
-    countThisColor = np.sum(go.board == willPlayColor)
-    countAnotherColor = np.sum(go.board == -willPlayColor)
-    return countThisColor - countAnotherColor
+    def gen_move_mcts(self, go, will_play_color, debug=False):
+        """Generate move using MCTS"""
+        root = MCTSNode(go, will_play_color, None)
 
+        best_next_node = MCTS(
+            root,
+            self.get_policy_net_result,
+            self.get_playout_net_result,
+            self.get_value_net_result,
+            debug=debug
+        )
 
-def genMovePolicy(go, willPlayColor):
-    """使用策略网络生成移动"""
-    predict = getPolicyNetResult(go, willPlayColor)
-    predictReverseSortIndex = reversed(torch.argsort(predict))
-
-    # stderr 输出 valueNet 结果
-    value = getValueResult(go, willPlayColor)
-    sys.stderr.write(f'{willPlayColor} {value}\n')
-
-    for predictIndex in predictReverseSortIndex:
-        x, y = toPosition(predictIndex)
-        if (x, y) == (None, None):
-            print('pass')
+        # Fallback to policy network if MCTS search fails
+        if best_next_node is None:
+            sys.stderr.write(
+                'MCTS search failed: no child nodes found, falling back to policy network\n')
+            self.gen_move_policy(go, will_play_color)
             return
-        moveResult = go.move(willPlayColor, x, y)
-        strPosition = toStrPosition(x, y)
 
-        if moveResult == False:
-            sys.stderr.write(f'Illegal move: {strPosition}\n')
-        else:
-            print(strPosition)
-            break
+        # Check if there's a new move
+        if len(best_next_node.go.history) <= len(go.history):
+            sys.stderr.write(
+                'MCTS search failed: no new moves, falling back to policy network\n')
+            self.gen_move_policy(go, will_play_color)
+            return
 
+        best_move = best_next_node.go.history[-1]
 
-def genMoveMCTS(go, willPlayColor, debug=False):
-    """使用MCTS生成移动"""
-    root = MCTSNode(go, willPlayColor, None)
+        if debug:
+            playout_result = self.get_playout_net_result(go, will_play_color)
+            playout_move = toPosition(torch.argmax(playout_result))
+            print(playout_move, best_move, playout_move == best_move)
+            for child in root.children:
+                print(child)
 
-    bestNextNode = MCTS(root, getPolicyNetResult, getPlayoutNetResult, getValueNetResult, debug=debug)
-    
-    # 如果MCTS搜索失败，回退到策略网络
-    if bestNextNode is None:
-        sys.stderr.write('MCTS搜索失败：未找到子节点，回退到策略网络\n')
-        genMovePolicy(go, willPlayColor)
-        return
-    
-    # 检查是否有新的移动
-    if len(bestNextNode.go.history) <= len(go.history):
-        sys.stderr.write('MCTS搜索失败：没有新移动，回退到策略网络\n')
-        genMovePolicy(go, willPlayColor)
-        return
-    
-    bestMove = bestNextNode.go.history[-1]
-
-    if debug:
-        playoutResult = getPlayoutNetResult(go, willPlayColor)
-        playoutMove = toPosition(torch.argmax(playoutResult))
-        print(playoutMove, bestMove, playoutMove == bestMove)
+        # Output search results to stderr
+        sys.stderr.write(f'MCTS search complete, candidate moves:\n')
         for child in root.children:
-            print(child)
+            sys.stderr.write(str(child) + '\n')
 
-    # 输出搜索结果到stderr
-    sys.stderr.write(f'MCTS搜索完成，候选移动:\n')
-    for child in root.children:
-        sys.stderr.write(str(child) + '\n')
+        x, y = best_move
+        move_result = go.move(will_play_color, x, y)
+        str_position = toStrPosition(x, y)
 
-    x, y = bestMove
-    moveResult = go.move(willPlayColor, x, y)
-    strPosition = toStrPosition(x, y)
-
-    if moveResult == False:
-        sys.stderr.write(f'Illegal move: {strPosition}\n')
-        # 如果移动非法，也回退到策略网络
-        go.board = root.go.board.copy()  # 恢复棋盘状态
-        genMovePolicy(go, willPlayColor)
-        return
-    else:
-        print(strPosition)
-    return x, y
+        if move_result == False:
+            sys.stderr.write(f'Illegal move: {str_position}\n')
+            # Fallback to policy network if move is illegal
+            go.board = root.go.board.copy()  # Restore board state
+            self.gen_move_policy(go, will_play_color)
+            return
+        else:
+            print(str_position)
+        return x, y
 
 
 if __name__ == '__main__':
-    # 测试代码
+    # Test code
+    engine = Engine()
     go = Go()
     go.move(1, 3, 16)
     go.move(-1, 3, 3)
@@ -161,7 +148,7 @@ if __name__ == '__main__':
     go.move(1, 2, 5)
 
     debug = True
-    genMoveMCTS(go, -1, debug)
+    engine.gen_move_mcts(go, -1, debug)
 
     for item in go.history:
-        print(toStrPosition(item[0], item[1])) 
+        print(toStrPosition(item[0], item[1]))
