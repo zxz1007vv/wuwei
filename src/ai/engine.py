@@ -73,6 +73,17 @@ class Engine:
         value = self.get_value_result(go, will_play_color)
         sys.stderr.write(f'{will_play_color} {value}\n')
 
+        # Output Candidate moves to stderr
+        sys.stderr.write('Policy Candidate moves:\n')
+        for predict_index in predict_reverse_sort_index[:5]:
+            x, y = toPosition(predict_index)
+            if (x, y) == (None, None):
+                sys.stderr.write('pass\n')
+            else:
+                str_position = toStrPosition(x, y)
+                sys.stderr.write(f'{str_position} {predict[predict_index].item()}\n')
+
+        # TODO: manually select a move
         for predict_index in predict_reverse_sort_index:
             x, y = toPosition(predict_index)
             if (x, y) == (None, None):
@@ -92,6 +103,7 @@ class Engine:
         """Generate move using MCTS"""
         root = MCTSNode(go, will_play_color, None)
 
+        # TODO: manually select a move
         best_next_node = MCTS(
             root,
             self.get_policy_net_result,
@@ -120,8 +132,6 @@ class Engine:
             playout_result = self.get_playout_net_result(go, will_play_color)
             playout_move = toPosition(torch.argmax(playout_result))
             print(playout_move, best_move, playout_move == best_move)
-            for child in root.children:
-                print(child)
 
         # Output search results to stderr
         sys.stderr.write(f'MCTS search complete, candidate moves:\n')
