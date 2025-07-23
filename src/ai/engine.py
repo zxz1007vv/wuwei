@@ -88,16 +88,17 @@ class Engine:
             x, y = toPosition(predict_index)
             if (x, y) == (None, None):
                 print('pass')
-                return
+                return None, None
             move_result = go.move(will_play_color, x, y)
             str_position = toStrPosition(x, y)
 
             if move_result == False:
                 sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
                 print('pass')
+                return None, None
             else:
                 print(str_position)
-                break
+                return x, y
 
     def gen_move_mcts(self, go, will_play_color, debug=False):
         """Generate move using MCTS"""
@@ -116,15 +117,13 @@ class Engine:
         if best_next_node is None:
             sys.stderr.write(
                 'MCTS search failed: no child nodes found, falling back to policy network\n')
-            self.gen_move_policy(go, will_play_color)
-            return
+            return self.gen_move_policy(go, will_play_color)
 
         # Check if there's a new move
         if len(best_next_node.go.history) <= len(go.history):
             sys.stderr.write(
                 'MCTS search failed: no new moves, falling back to policy network\n')
-            self.gen_move_policy(go, will_play_color)
-            return
+            return self.gen_move_policy(go, will_play_color)
 
         best_move = best_next_node.go.history[-1]
 
@@ -146,8 +145,7 @@ class Engine:
             sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
             # Fallback to policy network if move is illegal
             go.board = root.go.board.copy()  # Restore board state
-            self.gen_move_policy(go, will_play_color)
-            return
+            return self.gen_move_policy(go, will_play_color)
         else:
             print(str_position)
         return x, y
