@@ -38,7 +38,7 @@ def main():
     # 根据命令行参数执行相应的功能
     if args.command == 'gtp':
         from src.interface.gtp import main as gtp_main
-        gtp_main(args.mode)
+        gtp_main(args.mode=='MCTS')
 
     elif args.command == 'train':
         from src.training.trainer import main as train_main

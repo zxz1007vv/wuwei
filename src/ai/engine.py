@@ -23,15 +23,18 @@ class Engine:
         self.policy_net = PolicyNetwork()
         self.policy_net.load_state_dict(
             torch.load(path + 'models/policyNet.pt'))
+        self.policy_net.eval()
 
         self.playout_net = PlayoutNetwork()
         self.playout_net.load_state_dict(
             torch.load(path + 'models/playoutNet.pt'))
+        self.playout_net.eval()
 
         self.value_net = ValueNetwork()
         self.value_net.load_state_dict(torch.load(path + 'models/valueNet.pt'))
+        self.value_net.eval()
 
-
+    @torch.no_grad()
     def get_policy_net_result(self, go, will_play_color):
         """Get policy network prediction"""
         input_data = getAllFeatures(go, will_play_color)
@@ -39,6 +42,7 @@ class Engine:
         predict = self.policy_net(input_data)[0]
         return predict
 
+    @torch.no_grad()
     def get_playout_net_result(self, go, will_play_color):
         """Get playout network prediction"""
         input_data = getAllFeatures(go, will_play_color)
@@ -46,6 +50,7 @@ class Engine:
         predict = self.playout_net(input_data)[0]
         return predict
 
+    @torch.no_grad()
     def get_value_net_result(self, go, will_play_color):
         """Get value network prediction"""
         input_data = getAllFeatures(go, will_play_color)
@@ -68,24 +73,38 @@ class Engine:
         value = self.get_value_result(go, will_play_color)
         sys.stderr.write(f'{will_play_color} {value}\n')
 
+        # Output Candidate moves to stderr
+        sys.stderr.write('Policy Candidate moves:\n')
+        for predict_index in predict_reverse_sort_index[:5]:
+            x, y = toPosition(predict_index)
+            if (x, y) == (None, None):
+                sys.stderr.write('pass\n')
+            else:
+                str_position = toStrPosition(x, y)
+                sys.stderr.write(f'{str_position} {predict[predict_index].item()}\n')
+
+        # TODO: manually select a move
         for predict_index in predict_reverse_sort_index:
             x, y = toPosition(predict_index)
             if (x, y) == (None, None):
                 print('pass')
-                return
+                return None, None
             move_result = go.move(will_play_color, x, y)
             str_position = toStrPosition(x, y)
 
             if move_result == False:
-                sys.stderr.write(f'Illegal move: {str_position}\n')
+                sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
+                print('pass')
+                return None, None
             else:
                 print(str_position)
-                break
+                return x, y
 
     def gen_move_mcts(self, go, will_play_color, debug=False):
         """Generate move using MCTS"""
         root = MCTSNode(go, will_play_color, None)
 
+        # TODO: manually select a move
         best_next_node = MCTS(
             root,
             self.get_policy_net_result,
@@ -98,15 +117,13 @@ class Engine:
         if best_next_node is None:
             sys.stderr.write(
                 'MCTS search failed: no child nodes found, falling back to policy network\n')
-            self.gen_move_policy(go, will_play_color)
-            return
+            return self.gen_move_policy(go, will_play_color)
 
         # Check if there's a new move
         if len(best_next_node.go.history) <= len(go.history):
             sys.stderr.write(
                 'MCTS search failed: no new moves, falling back to policy network\n')
-            self.gen_move_policy(go, will_play_color)
-            return
+            return self.gen_move_policy(go, will_play_color)
 
         best_move = best_next_node.go.history[-1]
 
@@ -114,8 +131,6 @@ class Engine:
             playout_result = self.get_playout_net_result(go, will_play_color)
             playout_move = toPosition(torch.argmax(playout_result))
             print(playout_move, best_move, playout_move == best_move)
-            for child in root.children:
-                print(child)
 
         # Output search results to stderr
         sys.stderr.write(f'MCTS search complete, candidate moves:\n')
@@ -127,11 +142,10 @@ class Engine:
         str_position = toStrPosition(x, y)
 
         if move_result == False:
-            sys.stderr.write(f'Illegal move: {str_position}\n')
+            sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
             # Fallback to policy network if move is illegal
             go.board = root.go.board.copy()  # Restore board state
-            self.gen_move_policy(go, will_play_color)
-            return
+            return self.gen_move_policy(go, will_play_color)
         else:
             print(str_position)
         return x, y
