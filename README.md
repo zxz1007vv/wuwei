@@ -13,7 +13,7 @@
 
 AlphaGo 使用的是更多层卷积（包含残差网络）、更多 features，使用强化学习产生更多的数据。
 
-由于计算资源的限制，Irene 只使用有监督的形式训练大约 2000 张棋谱。因为价值网络的预测较为不准确，MCTS 中使用棋子数作为评估指标。
+由于计算资源的限制，只使用有监督的形式训练大约 2000 张棋谱。因为价值网络的预测较为不准确，MCTS 中使用棋子数作为评估指标。
 
 ### 项目结构
 
@@ -47,43 +47,58 @@ wuwei/
 克隆项目并安装依赖
 
 ```bash
-git clone https://github.com/GWDx/Irene.git
-cd Irene
+git clone git@github.com:zxz1007vv/wuwei.git
+cd  wuwei
 pip install -r requirements.txt
 ```
 
-获取并处理数据
-
+执行训练网络脚本
 ```bash
-wget https://homepages.cwi.nl/~aeb/go/games/games.7z
-7z x games.7z
-python main.py filter-sgf
-python main.py prepare-data
+chomd + train_nn.sh
+./train_nn.sh
 ```
+执行该脚本会：
 
-训练网络
+    获取并处理数据
 
-```bash
-python main.py train policy    # 训练策略网络
-python main.py train playout   # 训练快速策略网络
-python main.py train value     # 训练价值网络
-```
+    wget https://homepages.cwi.nl/~aeb/go/games/games.7z
+    7z x games.7z
+    python main.py filter-sgf
+    python main.py prepare-data
+    
+
+    训练网络
+
+    python main.py train policy    # 训练策略网络
+    python main.py train playout   # 训练快速策略网络
+    python main.py train value     # 训练价值网络
+    
+
+
 
 运行AI
-
-```bash
-# 使用GTP协议运行（可以连接Sabaki等图形界面）
-python main.py gtp
-
-# 或直接运行GTP模块
-python -m src.interface.gtp
-```
 
 运行测试
 
 ```bash
 python tests/test_game.py
 ```
+
+在sabaki中按照下图配置引擎：
+<img src="images/1.png" alt="2" width=60% />
+
+即可使用ai进行对弈
+
+也可以：
+```bash
+# 使用GTP协议运行
+python main.py gtp
+
+# 或直接运行GTP模块
+python -m src.interface.gtp
+```
+
+
 
 ### 结果
 
