@@ -242,7 +242,7 @@ def main(network_type=None):
     os.makedirs('models', exist_ok=True)
     if network_type == 'policy' or network_type == 'policyNet':
         net = PolicyNetwork()
-        trainPolicy(net, 'models/policyNet.pt', 40)
+        trainPolicy(net, 'models/policyNet.pt', 5)
     elif network_type == 'playout' or network_type == 'playoutNet':
         net = PlayoutNetwork()
         trainPolicy(net, 'models/playoutNet.pt', 5)

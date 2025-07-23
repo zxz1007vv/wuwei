@@ -25,9 +25,9 @@ class PolicyNetwork(nn.Module):
         super(PolicyNetwork, self).__init__()
         self.conv_in = nn.Conv2d(15, 128, 3, padding=1)
         self.bn_in = nn.BatchNorm2d(128)
-        
-        # 12 ResNet blocks with 128 channels
-        self.res_blocks = nn.ModuleList([ResBlock(128) for _ in range(12)])
+
+        # 8 ResNet blocks with 128 channels
+        self.res_blocks = nn.ModuleList([ResBlock(128) for _ in range(8)])
         
         # Policy head
         self.conv_policy = nn.Conv2d(128, 32, 1)
@@ -92,8 +92,8 @@ class ValueNetwork(nn.Module):
         self.conv_in = nn.Conv2d(15, 64, 3, padding=1)
         self.bn_in = nn.BatchNorm2d(64)
         
-        # 12 ResNet blocks
-        self.res_blocks = nn.ModuleList([ResBlock(64) for _ in range(12)])
+        # 8 ResNet blocks
+        self.res_blocks = nn.ModuleList([ResBlock(64) for _ in range(8)])
         
         # Value head
         self.conv_value = nn.Conv2d(64, 32, 1)
