@@ -20,5 +20,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-models/
+**/models/**
 logs/
+**/data/**
+*.zip
+*.pt

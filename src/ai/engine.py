@@ -7,6 +7,8 @@ from src.core.game import Go, toPosition, toStrPosition
 from src.core.features import getAllFeatures
 from src.ai.mcts import MCTSNode, MCTS
 
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
 class Engine:
 
     def __init__(self, path=None):
@@ -17,45 +19,48 @@ class Engine:
 
         # Get program path
         path = path if path else os.path.dirname(os.path.dirname(
-            os.path.dirname(os.path.realpath(__file__)))) + '/'
+            os.path.dirname(os.path.realpath(__file__)))) + '/models'
 
         # Load pre-trained models
         self.policy_net = PolicyNetwork()
         self.policy_net.load_state_dict(
-            torch.load(path + 'models/policyNet.pt'))
+            torch.load(os.path.join(path, 'policyNet.pt')))
+        self.policy_net.to(device)
         self.policy_net.eval()
 
         self.playout_net = PlayoutNetwork()
         self.playout_net.load_state_dict(
-            torch.load(path + 'models/playoutNet.pt'))
+            torch.load(os.path.join(path, 'playoutNet.pt')))
+        self.playout_net.to(device)
         self.playout_net.eval()
 
         self.value_net = ValueNetwork()
-        self.value_net.load_state_dict(torch.load(path + 'models/valueNet.pt'))
+        self.value_net.load_state_dict(torch.load(os.path.join(path, 'valueNet.pt')))
+        self.value_net.to(device)
         self.value_net.eval()
 
     @torch.no_grad()
     def get_policy_net_result(self, go, will_play_color):
         """Get policy network prediction"""
         input_data = getAllFeatures(go, will_play_color)
-        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19)
-        predict = self.policy_net(input_data)[0]
+        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19).to(device)
+        predict = self.policy_net(input_data)[0].detach().cpu()
         return predict
 
     @torch.no_grad()
     def get_playout_net_result(self, go, will_play_color):
         """Get playout network prediction"""
         input_data = getAllFeatures(go, will_play_color)
-        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19)
-        predict = self.playout_net(input_data)[0]
+        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19).to(device)
+        predict = self.playout_net(input_data)[0].detach().cpu()
         return predict
 
     @torch.no_grad()
     def get_value_net_result(self, go, will_play_color):
         """Get value network prediction"""
         input_data = getAllFeatures(go, will_play_color)
-        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19)
-        value = self.value_net(input_data)[0].item()
+        input_data = torch.tensor(input_data).bool().reshape(1, -1, 19, 19).to(device)
+        value = self.value_net(input_data)[0].detach().cpu().item()
         return value
 
     def get_value_result(self, go, will_play_color):
