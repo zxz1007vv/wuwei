@@ -38,6 +38,8 @@ class Go:
 
     def move(self, color, x, y):
         # 0. 检查输入是否合法
+        if not isinstance(x, int) or not isinstance(y, int):
+            return False
         if x < 0 or x >= self.size or y < 0 or y >= self.size:
             return False
 

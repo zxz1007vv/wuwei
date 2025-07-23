@@ -23,15 +23,18 @@ class Engine:
         self.policy_net = PolicyNetwork()
         self.policy_net.load_state_dict(
             torch.load(path + 'models/policyNet.pt'))
+        self.policy_net.eval()
 
         self.playout_net = PlayoutNetwork()
         self.playout_net.load_state_dict(
             torch.load(path + 'models/playoutNet.pt'))
+        self.playout_net.eval()
 
         self.value_net = ValueNetwork()
         self.value_net.load_state_dict(torch.load(path + 'models/valueNet.pt'))
+        self.value_net.eval()
 
-
+    @torch.no_grad()
     def get_policy_net_result(self, go, will_play_color):
         """Get policy network prediction"""
         input_data = getAllFeatures(go, will_play_color)
@@ -39,6 +42,7 @@ class Engine:
         predict = self.policy_net(input_data)[0]
         return predict
 
+    @torch.no_grad()
     def get_playout_net_result(self, go, will_play_color):
         """Get playout network prediction"""
         input_data = getAllFeatures(go, will_play_color)
@@ -46,6 +50,7 @@ class Engine:
         predict = self.playout_net(input_data)[0]
         return predict
 
+    @torch.no_grad()
     def get_value_net_result(self, go, will_play_color):
         """Get value network prediction"""
         input_data = getAllFeatures(go, will_play_color)
@@ -77,7 +82,8 @@ class Engine:
             str_position = toStrPosition(x, y)
 
             if move_result == False:
-                sys.stderr.write(f'Illegal move: {str_position}\n')
+                sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
+                print('pass')
             else:
                 print(str_position)
                 break
@@ -127,7 +133,7 @@ class Engine:
         str_position = toStrPosition(x, y)
 
         if move_result == False:
-            sys.stderr.write(f'Illegal move: {str_position}\n')
+            sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
             # Fallback to policy network if move is illegal
             go.board = root.go.board.copy()  # Restore board state
             self.gen_move_policy(go, will_play_color)
