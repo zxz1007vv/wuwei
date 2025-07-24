@@ -170,6 +170,11 @@ def self_play_training(
             for _ in range(num_games // batch_size):
                 # Sample from replay buffer
                 states, policies, values = env.replay_buffer.sample(batch_size)
+
+                # to device and ensure float32 dtype
+                states = states.to(device).float()
+                policies = policies.to(device)
+                values = values.to(device).float()
                 
                 # Train networks
                 policy_loss = train_policy(policy_net, states, policies, policy_optimizer)
@@ -186,7 +191,7 @@ def self_play_training(
         
         # Save checkpoints
         if (epoch + 1) % checkpoint_interval == 0:
-            save_checkpoint(models_dir, policy_net, value_net, playout_net, checkpoint_dir, epoch + 1)
+            save_checkpoint(policy_net, value_net, playout_net, checkpoint_dir, epoch + 1)
 
 def main():
     """Main function"""

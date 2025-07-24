@@ -13,6 +13,12 @@ class ReplayBuffer:
         self.position = 0
         
     def push(self, state, policy, value):
+        # Ensure state and value are float32
+        if isinstance(state, torch.Tensor):
+            state = state.float()
+        if isinstance(value, torch.Tensor):
+            value = value.float()
+            
         if len(self.states) < self.capacity:
             self.states.append(state)
             self.policies.append(policy)
