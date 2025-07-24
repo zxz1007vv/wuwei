@@ -92,18 +92,19 @@ class Engine:
         for predict_index in predict_reverse_sort_index:
             x, y = toPosition(predict_index)
             if (x, y) == (None, None):
-                print('pass')
-                return None, None
+                sys.stderr.write('pass\n')
+                continue
             move_result = go.move(will_play_color, x, y)
             str_position = toStrPosition(x, y)
 
             if move_result == False:
                 sys.stderr.write(f'Illegal move ({x}, {y}): {str_position}\n')
-                print('pass')
-                return None, None
+                continue
             else:
                 print(str_position)
                 return x, y
+        print('pass')
+        return None, None
 
     def gen_move_mcts(self, go, will_play_color, debug=False):
         """Generate move using MCTS"""
